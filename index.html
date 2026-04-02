@@ -3,31 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <title>Feliz Páscoa</title>
+
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #ffecd2, #fcb69f);
       font-family: Arial, sans-serif;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      overflow: hidden;
+      background: #ffe6f0;
+    }
+
+    /* Fundo com corações */
+    .bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#ff4d6d 2px, transparent 2px),
+                        radial-gradient(#ff99c8 2px, transparent 2px);
+      background-size: 40px 40px;
+      animation: move 10s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes move {
+      from {transform: translateY(0);}
+      to {transform: translateY(-40px);}
     }
 
     .container {
       text-align: center;
       background: white;
-      padding: 40px;
+      padding: 35px;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      max-width: 350px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 320px;
       display: none;
     }
 
     h1 {
-      color: #e67e22;
-      font-size: 2em;
+      color: #ff4d6d;
       margin-bottom: 10px;
     }
 
@@ -38,38 +56,37 @@
 
     .name {
       font-weight: bold;
-      color: #e74c3c;
+      color: #d6336c;
     }
 
     img {
       width: 100%;
       border-radius: 15px;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .heart {
-      font-size: 2.5em;
-      margin-top: 15px;
+      font-size: 2em;
+      margin-top: 10px;
       animation: pulse 1s infinite;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
+      0% {transform: scale(1);}
+      50% {transform: scale(1.2);}
+      100% {transform: scale(1);}
     }
 
     .login {
       text-align: center;
       background: white;
-      padding: 30px;
+      padding: 25px;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
 
     input {
       padding: 10px;
-      font-size: 1em;
       border-radius: 10px;
       border: 1px solid #ccc;
       margin-top: 10px;
@@ -80,45 +97,48 @@
       padding: 10px 20px;
       border: none;
       border-radius: 10px;
-      background-color: #e67e22;
+      background: #ff4d6d;
       color: white;
-      font-size: 1em;
       cursor: pointer;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Tela de senha -->
-  <div class="login" id="loginBox">
-    <h2>Digite a senha 💌</h2>
-    <input type="password" id="senha" placeholder="Senha">
-    <br>
-    <button onclick="verificarSenha()">Entrar</button>
-  </div>
+<div class="bg"></div>
 
-  <!-- Conteúdo escondido -->
-  <div class="container" id="conteudo">
-    <h1>Feliz Páscoa 🐰🥚</h1>
-    <p>Eu te amo, <span class="name">Erick Felipe</span> ❤️</p>
+<!-- Tela de senha -->
+<div class="login" id="loginBox">
+  <h2>Digite a senha 💌</h2>
+  <input type="password" id="senha" placeholder="Senha">
+  <br>
+  <button onclick="verificarSenha()">Entrar</button>
+</div>
 
-    <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Imagem de Páscoa">
+<!-- Conteúdo -->
+<div class="container" id="conteudo">
+  <h1>Feliz Páscoa 🐰🥚</h1>
+  <p>Eu te amo, <span class="name">Erick Felipe</span> ❤️</p>
 
-    <div class="heart">❤️</div>
-  </div>
+  <!-- SUA FOTO AQUI -->
+  <img src="SUA-FOTO.jpg" alt="Nossa foto">
 
-  <script>
-    function verificarSenha() {
-      var senha = document.getElementById("senha").value;
+  <div class="heart">❤️❤️❤️</div>
+</div>
 
-      if (senha === "12345") {
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("conteudo").style.display = "block";
-      } else {
-        alert("Senha incorreta 😢");
-      }
-    }
-  </script>
+<script>
+function verificarSenha() {
+  var senha = document.getElementById("senha").value;
+
+  if (senha === "12345") {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+  } else {
+    alert("Senha incorreta 😢");
+  }
+}
+</script>
 
 </body>
 </html>
